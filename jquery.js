@@ -9,11 +9,14 @@ $(document).ready(function () {
        
     alert( $("#text").val())
 
-    });
+});
 
-    if ($("#text").val() == ''){
-        $("#btnsubmit2").prop("disabled", true)
-}else {
-    $("#btnsubmit2").prop("enabled", true)
-};
+if ($("#text").val() == 0){
+    $("#btnsubmit2").prop("disabled", true)
+}   
+if ($("#text").keyup(function(){
+    $("#btnsubmit2").prop("disabled",false)
+}));
+  
+
 });
