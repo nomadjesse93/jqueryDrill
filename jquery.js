@@ -28,16 +28,28 @@ $(document).ready(function () {
 
 
 
-
-
-
         function printtext() {
 
-            let div = $(document.createElement("div")).appendTo(document.body);
-            let h2 = $(document.createElement("h2"));
+            let div = $(document.createElement("div")).addClass("div1").appendTo(document.body);
+            let h2 = $(document.createElement("h2")).addClass("h2");
             $(h2).appendTo(div);
             let text = $(document.createTextNode($("#text").val()))
             $(text).appendTo(h2)
+
+            $(div).on("mouseover", function(){
+                $(div).css(
+                    { "background-color": "red",
+                    "border-radius":"1em",
+                "height":"15em",
+                "width":"15em",
+            "color": "blue"
+        });
+                $(div).on("mouseout", function(){
+$(div).css(
+    "color", "black"
+)
+                })
+            });
 
         };
 
