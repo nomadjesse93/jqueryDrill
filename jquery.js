@@ -1,51 +1,51 @@
-$(document).ready(function () {
+$(function () {
 
     $("#btnsubmit").on("click", function () {
         alert("Clicked Submit Button")
     });
 
-    let div = ($(document.createElement("div")));
-    let ul = ($(document.createElement("ul")));
-   
-    function makelist(){
-        
-        
-        let li =  ($(document.createElement("li")));
-    $(li).addClass("words")
-        
-    let txt = ($(document.createTextNode($("#text").val())))
-       
-     
-        $(txt).appendTo(li)
-        $(li).appendTo(ul)
-        $(ul).appendTo(div)
-        $(div).appendTo("body");
+    let $div = $("<div> </div>");
+    let $ul = $("<ul> </ul>");
 
-        $(li).on("click", function () {
-        
-            $(li).css({"color": getRandomColor()})
-            
+    function makelist() {
+
+
+        let $li = ("<li> "+$("#text").val()+" </li>");
+
+
+
+
+    
+        $($ul).append($li);
+        $($div).append($ul);
+        $('body').append($div);
+
+  
+        $($div).children().children().on("click", function () {
+
+            $(this).css({ "color": getRandomColor()});
+    
         });
     
-        $(li).on("dblclick", function(){
-    $(li).remove()
-        })
-    
-       
-    }
-
+        $($div).children().children().on("dblclick", function () {
+            $(this).remove()
+        });
     
     
 
-    let color = $(["red","yellow","blue", "green", "orange"])
-    
-   
-   
-  function getRandomColor(){
-    let randomColor = color[Math.floor(Math.random() * color.length)]  
-    return randomColor;
-  }
- 
+    };
+
+
+
+    let color = $(["red", "yellow", "blue", "green", "orange"]);
+
+
+
+    function getRandomColor() {
+        let randomColor = color[Math.floor(Math.random() * color.length)]
+        return randomColor;
+    };
+
 
 
 
@@ -53,8 +53,8 @@ $(document).ready(function () {
         event.preventDefault()
         makelist()
         alert($("#text").val())
-   
-        
+
+
 
     });
 
@@ -63,7 +63,7 @@ $(document).ready(function () {
 
         $("#btnsubmit2").prop("disabled", true)
 
-    }
+    };
     if ($("#text").keyup(function () {
 
         $("#btnsubmit2").prop("disabled", false)
@@ -71,8 +71,8 @@ $(document).ready(function () {
 
 
 
-    
-    
+
+
 
 
 
